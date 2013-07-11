@@ -1,0 +1,200 @@
+the variable wrapper isis is defined as an anonymous function.  This is due to protect function names and prevent them from being created in a global scope.
+
+define a bunch of variables without any values
+
+
+function promptForNumber(message)
+prompt a user to enter a number.  While the user input is not a number or an empty string, prompt the user for a number again.  (I believe this is used for when you're buying amo)
+
+
+
+
+
+function getRandomIntInRange(min, max)
+returns a randomly generated number 
+
+
+
+
+function createButtonForCity(city)
+create an html button tag that is labeled with a message "travel here", is given a class of 'btn', 
+and make the data-city value equl to the result of the city variable
+
+
+buy.click(function)
+sets the buy click behavior for the city button created above
+the item variable gets set to the item value of the data 'item' derived from the city variable
+for the (this) button (the button clicked by user).
+As a result an item gets bought.  'Item gets passed in as a variable to buyItem, and the view gets cleared.'
+
+function sample(items, numberOfItems)
+sample of items gets set to an empty array
+
+return a random collection of items based on a random number that's assigned to the index.  Keep randomly selecting an item until the item is not the last one added to the sample.
+
+function printCities(currentCity)
+set up the page with the current city name, such as welcome to Toronto.
+Establish variables that get assigned to html tags such as table rows and cells, as well as buttons.
+If the city is not the current city assign the function to the button that will take the user to the city page when clicked.  If user were to click the travel here button the data value 'city' would act as the index value to chose the city from the cities array.  At that instance the changeCity function would run, rollDieForBadThing function and the window would be refreshed.  Otherwise, print the "You are here" text on the proper city button and add the 'btn-warning disabled' class to the button.  Append all these elements to the table.
+
+function printItems(currentCity)
+Create the html elements for the current city items table on the right of the page.  Run the currentPrice method on item to get the price.  Append all elements to the table and the page.
+
+function printInventory(inventory, currentCityItems)
+Sets up variables and assigns them to table tags in the html.
+Sets up the item value by multiplying quantity with item price currentPrice.  
+If the items in the player's inventory are different then what's available in the city's inventory, initiate the sell button.  Run the getInventoryItem method on agent, and if the click is initiated, run the sellItem method.
+Append the button to the table.
+Display the worth of the item.
+
+function printProfile(agent)
+Set the html elements for the agent/user profile.  Including grabbing the getRank method and money variable.
+
+Item = function(name, minPrice, maxPrice)
+setup name, minPrice, maxPrice and recalculatePrice variables for the Item constructor function which initializes an instance of the above with the described variables.
+
+Item.prototype.recalculatePrice = function ()
+When a new istance of Item gets created, as a global attribute, a minimum price and a maxPrice variable get created based on the getRandomIntInRange method.
+
+_items = [gun/ammo, minPrice, MaxPrice]
+
+City = function(name)
+When a city gets instanced, it gets created with a random number of items from the items array.
+
+_cities = [cityNames]
+
+Game = function ()
+Initialize the game with an array of cities, and one city randomly selected as the current city.  The badThings array starts empty.  Also a new instance of Agent gets created.
+
+Game.prototype.refreshViews = function()
+sets the refreshViews variable inside the Game instance prototype value to display the new view with the name of the current city updated, as well as the inventory the agent has for the current city and an update of the agent's profile.  
+Game.prototype.changeCity - function(newCity)
+change the value of currentCity to newCity and refresh the views.
+
+Game.prototype.badThings = function()
+The game instance gets created with a number randomly selected between 1-10.  If the number rolls 1 a bad things happens, otherwise bad things get set to false.
+
+Game.prototype.makeBadThingHappen = function()
+Select a random bad thing from the badThings array based on index number selected by a random roll.
+
+Game.prototype.rollDieForBadThing = function()
+if badThing function rolled true, initialize the MakeBadThing happen function, if it rolled false, send an alert message saying "Nothing bad happened"
+
+Game.prototype.buyItem = function(item)
+Function called when buy is clicked for an item
+Define the buyItem variable for the Game instance to be an alert sent to the user asking for the quantity of the items he/she wants to buy.  If quantity is higher then 0 break out of the loop, if 0 send an alert asking for a higher number.
+Set the amount variable to equal price x quantity
+If the agent tries to purchase arms over his money limit, send an alert saying can't afford the amount.
+Identify the yes variable which is equal to user's input confirming that the quantity they selected is what they wanted (generated by confirm dialog box)
+If yes, deduct money by spendMoney method, and run buyItem method and refresh views.
+
+Game.prototype.sellItem = function(inventoryItem)
+Function called when sell is clicked for an item
+determine the value by multiplying the currentPrice by amount quantity.  
+Initiate a loop that checks the quantity of the number of items to sell based on what's available.
+Sell the item by removing it from the agen't inventory and adding money through the earnMondy function.
+
+Game.prototype.initBadThings = function(badThings)
+Define a series of badThings objects which include a string describing what happened, an ohNoes variable which alerts the user of the penalty and runs the penalty calculation of the agent money variable.  There are 4 such objects that come equipped with a push method.
+
+AgentItem = function(item, quantity)
+describe an itam variable and quantity variable defined for the AgentItem constructor (when instentiated)
+
+Agent=function()
+define the money variable = 1000 and an empty array for inventory which get created with the new instance of Agent.
+Run the init function.
+
+Agent.prototype.init = function(item)
+assign the name variable to the input received from the "what's your name" prompt sent to the user, and the same for codename.  This gets assigned as the init variable to new Agent instance.
+
+Agent.prototype.getIventoryItem = function(index)
+Return the the given index of the inventory which will be an item
+
+Agent.prototype.buyItem = function(item, quantity)
+if the item gets found in the agen't inventory then increase it's quantity, if it's not in the inventory, then Create a new instance of AgentItem and add it to the inventory.
+
+Agent.prototype.sellItem = function(item, quantity)
+If the item is found in the inventory and the sell number exceeds the quantity available, throw an error, if the number being sold is everything, remove the item from the inventory array, or just remove the quantity of items by the amount selected and finally if item not in the inventory throw an error message.
+
+Agent.prototype.getRank = function()
+if Money is below 500 call Rookie, etc. to over 5000 equates to double 0
+
+Agent.prototype.canAfford - function(amout)
+return true or false based on the money the agent has and what they are trying to buy
+
+Agent.prototype.spendMoney = function(amount) 
+if the agent can afford the purchase, reduce the amount by it's value
+
+Agent.prototype.earnMoney = function(amount)
+increase the agent's money by amount earned
+
+Anonymous functions need to end with }(); paranthesis which we see at the end
+
+The script ends with isis.init(); which initializes the game.
+
+ask to explain the very last bit of the script 
+
+return {
+    init: function() {
+      $_cities    = $('#cities');
+      $_items     = $('#items');
+      $_cityTitle = $('#currentCity');
+      $_inventory = $('#inventory');
+      $_codename  = $('#codename');
+      $_agentName = $('#agentName');
+      $_agentRank = $('#agentRank');
+      $_money     = $('#agentMoney');
+      _game       = new Game();
+    },
+
+    game: _game,
+
+    debug: function() {
+      return _game;
+    },
+
+    Agent:     Agent,
+    AgentItem: AgentItem,
+    Item:      Item,
+    City:      City,
+    Game:      Game
+  }
+
+the variables in return init are the only variables the user can see, the rest of the variables are private.  Variables that start with an underscore are private variables, and ones that start with a dollar sign are global variables.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
